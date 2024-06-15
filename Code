@@ -1,0 +1,44 @@
+#include <Servo.h>
+
+Servo Servo;
+
+int ir_sensor = 4;
+
+int servo_motor =5;
+int red=7;
+int green=8;
+
+int val;
+
+void setup()
+
+{ pinMode(ir_sensor, INPUT); 
+Servo.attach(servo_motor);
+pinMode(red, OUTPUT);
+pinMode(green,OUTPUT);
+
+}
+
+void loop()
+
+{ val = digitalRead(ir_sensor);
+
+if (val==1)
+
+{ 
+  Servo.write(180); 
+  digitalWrite(red,HIGH);
+   digitalWrite(green,LOW);
+}
+ else
+
+
+
+{
+  Servo.write(90); 
+  digitalWrite(green,HIGH);
+   digitalWrite(red,LOW);
+
+  }
+
+}
